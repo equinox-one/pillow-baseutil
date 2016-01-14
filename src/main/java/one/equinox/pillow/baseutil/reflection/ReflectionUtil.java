@@ -16,13 +16,11 @@
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  */
 
-package com.mateuyabar.android.pillow.util.reflection;
+package one.equinox.pillow.baseutil.reflection;
 
-import com.mateuyabar.android.pillow.util.reflection.ValuesTypes.Embeddable;
-import com.mateuyabar.android.pillow.util.reflection.ValuesTypes.ValueType;
-import com.mateuyabar.android.pillow.util.reflection.ValuesTypes.ValueType.NONE;
-import com.mateuyabar.util.CaseFormat;
-import com.mateuyabar.util.exceptions.BreakFastException;
+
+import one.equinox.pillow.baseutil.CaseFormat;
+import one.equinox.pillow.baseutil.exceptions.BreakFastException;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -65,31 +63,9 @@ public class ReflectionUtil {
 	public static boolean isTransient(Field field){
 		return Modifier.isTransient(field.getModifiers());
 	}
-	
-	public static boolean isBelongsTo(Field field){
-		ValueType valueType = field.getAnnotation(ValueType.class);
-		return valueType!=null && valueType.belongsTo()!=null && valueType.belongsTo()!=NONE.class;
-	}
-	
-	public static List<Class<?>> getBelongsToClasses(Class<?> modelClass){
-		List<Class<?>> result = new ArrayList<Class<?>>();
-		for(Field field : getBelongsToFields(modelClass)){
-			ValueType valueType = field.getAnnotation(ValueType.class);
-			result.add(valueType.belongsTo());
-		}
-		return result;
-	}
 
-	public static List<Field> getBelongsToFields(Class<?> modelClass){
-		List<Field> result = new ArrayList<Field>();
-		for(Field field: getStoredFields(modelClass)){
-			if(ReflectionUtil.isBelongsTo(field)){
-				result.add(field);
-			}
-		}
-		return result;
-	}
-	
+
+
 	public static void setReferenceId(Object model, Class<?> referencedClass, String id){
 		String attribute = referencedClass.getSimpleName() +"Id";
 		attribute = new CaseFormat().firstLetterToLowerCase(attribute);
@@ -102,10 +78,7 @@ public class ReflectionUtil {
 		}
 	}
 	
-	public static boolean isEmbeddable(Class<?> clazz){
-		return clazz.getAnnotation(Embeddable.class)!=null;
-	}
-	
+
 	public static boolean isNull(Field field, Object model) {
 		field.setAccessible(true);
 		try {
@@ -143,13 +116,4 @@ public class ReflectionUtil {
         }
     }
 
-	/*ublic static <T extends IdentificableModel> T createIdModel(Class<T> modelClass, String id){
-		try {
-			T model = modelClass.newInstance();
-			model.setId(id);
-			return model;
-		} catch (Exception e) {
-			throw new BreakFastException(e);
-		}
-	}*/
 }

@@ -16,29 +16,20 @@
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  */
 
-package com.mateuyabar.util.exceptions;
+package one.equinox.pillow.baseutil;
 
-/**
- * To use only on develop phase.
- * Indicates that this feature has to be implemented yet.
- */
-public class ToImplementException extends UnimplementedException{
-	private static final long serialVersionUID = 6570516847121776681L;
-
-	public ToImplementException() {
-		super();
+public class CaseFormat {
+	
+	public String cammelCaseToSnakeCase(String cammelCase){
+		String regex = "([a-z])([A-Z]+)";
+	    String replacement = "$1_$2";
+	    return cammelCase.replaceAll(regex, replacement).toLowerCase();
 	}
-
-	public ToImplementException(String detailMessage, Throwable throwable) {
-		super(detailMessage, throwable);
-	}
-
-	public ToImplementException(String detailMessage) {
-		super(detailMessage);
-	}
-
-	public ToImplementException(Throwable throwable) {
-		super(throwable);
+	
+	public String firstLetterToLowerCase(String string){
+		String firstLetter = string.substring(0,1).toLowerCase();
+		String restLetters = string.substring(1);
+		return firstLetter + restLetters;
 	}
 
 }

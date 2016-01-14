@@ -16,7 +16,7 @@
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  */
 
-package com.mateuyabar.util;
+package one.equinox.pillow.baseutil;
 
 import java.text.DecimalFormat;
 

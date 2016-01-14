@@ -16,25 +16,28 @@
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  */
 
-package com.mateuyabar.util.exceptions;
+package one.equinox.pillow.baseutil.exceptions;
 
-public class UnimplementedException extends RuntimeException {
+/**
+ * To use only on develop phase.
+ * Indicates that this feature has to be implemented yet.
+ */
+public class ToImplementException extends UnimplementedException{
+	private static final long serialVersionUID = 6570516847121776681L;
 
-	private static final long serialVersionUID = -67949479340253788L;
-
-	public UnimplementedException() {
+	public ToImplementException() {
 		super();
 	}
 
-	public UnimplementedException(String detailMessage, Throwable throwable) {
+	public ToImplementException(String detailMessage, Throwable throwable) {
 		super(detailMessage, throwable);
 	}
 
-	public UnimplementedException(String detailMessage) {
+	public ToImplementException(String detailMessage) {
 		super(detailMessage);
 	}
 
-	public UnimplementedException(Throwable throwable) {
+	public ToImplementException(Throwable throwable) {
 		super(throwable);
 	}
 

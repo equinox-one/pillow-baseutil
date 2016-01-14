@@ -2,10 +2,32 @@ group 'one.equinox.pillow'
 version '0.0.1'
 
 apply plugin: 'java'
+apply plugin: 'com.novoda.bintray-release'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.6
+
+publish {
+    userOrg = 'equinox-one'
+    groupId = 'one.equinox.pillow'
+    artifactId = 'baseutil'
+    publishVersion = '0.0.1'
+    desc = 'Base pillow util'
+    website = 'https://github.com/equinox-one/pillow-baseutil'
+}
+
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.3.4'
+    }
+}
+
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 

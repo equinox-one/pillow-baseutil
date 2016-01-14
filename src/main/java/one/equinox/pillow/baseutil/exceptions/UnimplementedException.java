@@ -16,25 +16,25 @@
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  */
 
-package com.mateuyabar.util.exceptions;
+package one.equinox.pillow.baseutil.exceptions;
 
-public class BreakFastException extends RuntimeException {
+public class UnimplementedException extends RuntimeException {
 
-	private static final long serialVersionUID = -5956881676211995975L;
+	private static final long serialVersionUID = -67949479340253788L;
 
-	public BreakFastException() {
+	public UnimplementedException() {
 		super();
 	}
 
-	public BreakFastException(String detailMessage, Throwable throwable) {
+	public UnimplementedException(String detailMessage, Throwable throwable) {
 		super(detailMessage, throwable);
 	}
 
-	public BreakFastException(String detailMessage) {
+	public UnimplementedException(String detailMessage) {
 		super(detailMessage);
 	}
 
-	public BreakFastException(Throwable throwable) {
+	public UnimplementedException(Throwable throwable) {
 		super(throwable);
 	}
 

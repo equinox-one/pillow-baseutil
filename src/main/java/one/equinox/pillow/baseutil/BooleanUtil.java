@@ -1,4 +1,4 @@
-package com.mateuyabar.util;
+package one.equinox.pillow.baseutil;
 
 /**
  * Boolea util functions

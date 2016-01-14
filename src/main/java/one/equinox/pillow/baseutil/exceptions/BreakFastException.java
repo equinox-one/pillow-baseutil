@@ -16,20 +16,26 @@
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  */
 
-package com.mateuyabar.util;
+package one.equinox.pillow.baseutil.exceptions;
 
-public class CaseFormat {
-	
-	public String cammelCaseToSnakeCase(String cammelCase){
-		String regex = "([a-z])([A-Z]+)";
-	    String replacement = "$1_$2";
-	    return cammelCase.replaceAll(regex, replacement).toLowerCase();
+public class BreakFastException extends RuntimeException {
+
+	private static final long serialVersionUID = -5956881676211995975L;
+
+	public BreakFastException() {
+		super();
 	}
-	
-	public String firstLetterToLowerCase(String string){
-		String firstLetter = string.substring(0,1).toLowerCase();
-		String restLetters = string.substring(1);
-		return firstLetter + restLetters;
+
+	public BreakFastException(String detailMessage, Throwable throwable) {
+		super(detailMessage, throwable);
+	}
+
+	public BreakFastException(String detailMessage) {
+		super(detailMessage);
+	}
+
+	public BreakFastException(Throwable throwable) {
+		super(throwable);
 	}
 
 }
